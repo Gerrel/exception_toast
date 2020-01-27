@@ -1,6 +1,8 @@
 package gerrel.github.io.exception_toast
 
-import androidx.annotation.NonNull;
+import android.content.Context
+import android.widget.Toast
+import androidx.annotation.NonNull
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -8,11 +10,16 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.Registrar
 
+
 /** ExceptionToastPlugin */
 public class ExceptionToastPlugin: FlutterPlugin, MethodCallHandler {
+
+  var context: Context? = null
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
     val channel = MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "exception_toast")
-    channel.setMethodCallHandler(ExceptionToastPlugin());
+    val plugin = ExceptionToastPlugin();
+    plugin.context = flutterPluginBinding.applicationContext;
+    channel.setMethodCallHandler(plugin)
   }
 
   // This static function is optional and equivalent to onAttachedToEngine. It supports the old
@@ -28,13 +35,25 @@ public class ExceptionToastPlugin: FlutterPlugin, MethodCallHandler {
     @JvmStatic
     fun registerWith(registrar: Registrar) {
       val channel = MethodChannel(registrar.messenger(), "exception_toast")
-      channel.setMethodCallHandler(ExceptionToastPlugin())
+      val plugin = ExceptionToastPlugin();
+      plugin.context = registrar.activeContext()
+      channel.setMethodCallHandler(plugin)
     }
   }
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-    if (call.method == "getPlatformVersion") {
-      result.success("Android ${android.os.Build.VERSION.RELEASE}")
+    if (call.method == "exceptionToast") {
+      if (!call.hasArgument("text")) {
+        result.error("argument 'text' not found", null, null)
+        return
+      }
+      if (context == null) {
+        result.error("context not available", null, null)
+        return
+      }
+      val text = call.argument<String>("text")
+      Toast.makeText(this.context, text, Toast.LENGTH_LONG).show()
+      result.success(true)
     } else {
       result.notImplemented()
     }
