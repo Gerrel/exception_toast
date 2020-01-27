@@ -1,0 +1,22 @@
+PODS:
+  - exception_toast (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - exception_toast (from `.symlinks/plugins/exception_toast/ios`)
+  - Flutter (from `Flutter`)
+
+EXTERNAL SOURCES:
+  exception_toast:
+    :path: ".symlinks/plugins/exception_toast/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  exception_toast: 04153bdfcde22b7e8b062046fe194f4e29b51c8e
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+
+PODFILE CHECKSUM: 1b66dae606f75376c5f2135a8290850eeb09ae83
+
+COCOAPODS: 1.8.4
