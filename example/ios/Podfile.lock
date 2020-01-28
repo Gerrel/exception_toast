@@ -1,5 +1,5 @@
 PODS:
-  - exception_toast (0.0.1):
+  - exception_toast (0.0.2):
     - Flutter
   - Flutter (1.0.0)
 
@@ -14,7 +14,7 @@ EXTERNAL SOURCES:
     :path: Flutter
 
 SPEC CHECKSUMS:
-  exception_toast: 04153bdfcde22b7e8b062046fe194f4e29b51c8e
+  exception_toast: f305c05564d53204fde2ea1f2df4c4caa69087d3
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
 
 PODFILE CHECKSUM: 1b66dae606f75376c5f2135a8290850eeb09ae83

@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'exception_toast'
-  s.version          = '0.0.2'
+  s.version          = '0.9.0'
   s.summary          = 'A flutter package that shows exceptions in a toast message'
   s.description      = <<-DESC
 A flutter package that shows exceptions in a toast message

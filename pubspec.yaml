@@ -1,6 +1,6 @@
 name: exception_toast
 description: A flutter package that shows exceptions in a toast message
-version: 0.0.2
+version: 0.9.0
 homepage: https://github.com/Gerrel/exception_toast
 
 environment:
