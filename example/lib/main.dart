@@ -11,7 +11,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,9 +19,12 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: RaisedButton(child: Text('call exception'), onPressed: () {
-            ExceptionToast.show(error: 'my error message', trace: null);
-          },),
+          child: RaisedButton(
+            child: Text('call exception'),
+            onPressed: () {
+              ExceptionToast.show(error: 'my error message', trace: null);
+            },
+          ),
         ),
       ),
     );
